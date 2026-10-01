@@ -1,0 +1,23 @@
+server:
+  port: 8090
+  shutdown: graceful
+
+spring:
+  application:
+    name: logistics-stream
+  jackson:
+    default-property-inclusion: non_null
+
+logistics:
+  source: simulated
+  poll-interval-ms: 500
+  outbox-limit: 256
+  stale-after-ms: 10000
+  max-sessions: 2000
+  writer-threads: 8
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
